@@ -1,0 +1,381 @@
+.footer {
+	background-color: $mainDarkColor;
+
+	// .footer__text
+	&__text {
+	}
+	// .footer__body
+	&__body {
+	}
+}
+.text-footer {
+	background: url("@img/footer/bg.jpg") top / cover no-repeat;
+	@include adaptiveValue("padding-top", 60, 30);
+	@include adaptiveValue("padding-bottom", 60, 30);
+
+	// .text-footer__container
+	&__container {
+	}
+
+	// .text-footer__title
+	&__title {
+		font-weight: 700;
+		@include adaptiveValue("font-size", 30, 20);
+		line-height: lh(46, 30);
+		letter-spacing: 0.05em;
+		color: $mainOrange;
+		text-align: center;
+		&:not(:last-child) {
+			margin-bottom: em(30, 30);
+		}
+	}
+
+	// .text-footer__text
+	&__text {
+		@include adaptiveValue("font-size", 18, 16);
+		line-height: lh(27, 18);
+		letter-spacing: 0.03em;
+		color: #ffffff;
+
+		p:not(:last-child) {
+			margin-bottom: rem(22);
+		}
+	}
+}
+
+// ==========================================================================================================================
+
+.body-footer {
+	@include adaptiveValue("padding-top", 70, 0);
+	@include adaptiveValue("padding-bottom", 45, 30);
+
+	// .body-footer__container
+	&__container {
+	}
+
+	// .body-footer__row
+	&__row {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		column-gap: rem(40);
+		row-gap: rem(60);
+		padding: rem(30) 0;
+		&:not(:last-child) {
+			border-bottom: rem(1) solid rgba(255, 255, 255, 0.5);
+		}
+
+		@media (max-width: $tablet) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+		@media (max-width: $mobile) {
+			grid-template-columns: 1fr;
+			row-gap: rem(30);
+		}
+	}
+
+	// .body-footer__item
+	&__item {
+	}
+
+	.item-footer {
+		// .item-footer__spoller
+		&__spoller {
+		}
+	}
+
+	.spoller-item-footer {
+		// .spoller-item-footer__item
+		&__item {
+		}
+
+		// .spoller-item-footer__title
+		&__title {
+			font-weight: 600;
+			@include adaptiveValue("font-size", 18, 16);
+			line-height: lh(22, 18);
+			text-transform: capitalize;
+			color: #ffffff;
+			// Перенёс ниже, неработает именно здесь какого-то хера
+			// ._spoller-init & {
+			// 	display: flex;
+			// 	gap: em(10, 16);
+			// 	&::after {
+			// 		content: "\e90c";
+			// 		display: block;
+			// 		font-family: "iconfont" !important;
+			// 		speak: never;
+			// 		font-style: normal;
+			// 		font-weight: normal;
+			// 		font-variant: normal;
+			// 		text-transform: none;
+			// 		line-height: 1;
+			// 		color: #ffffff;
+			// 		font-size: em(10, 16);
+			// 		transform: rotate(180deg);
+			// 	}
+			// }
+		}
+
+		// .spoller-item-footer__body
+		&__body {
+			padding-top: rem(30);
+
+			._spoller-init & {
+				padding-bottom: rem(30);
+			}
+		}
+	}
+
+	.menu-footer {
+		// .menu-footer__list
+		&__list {
+		}
+		// .menu-footer__item
+		&__item {
+			@include adaptiveValue("font-size", 18, 16);
+			line-height: lh(27, 18);
+			color: rgba(255, 255, 255, 0.8);
+			&:not(:last-child) {
+				margin-bottom: em(20, 18);
+			}
+			display: flex;
+			column-gap: em(15, 18);
+
+			&::before {
+				font-size: em(16, 18);
+				position: relative;
+				top: em(5, 16);
+				flex: 0 0 em(18, 16);
+				display: flex;
+				justify-content: center;
+			}
+
+			&.icon-email {
+				&::before {
+					font-size: em(13, 18);
+					top: em(8, 16);
+				}
+			}
+		}
+
+		// .menu-footer__link
+		&__link {
+			transition: color 0.2s ease 0s;
+			display: inline-block;
+
+			@media (any-hover: hover) {
+				&:hover {
+					color: $mainOrange;
+				}
+			}
+		}
+
+		// .menu-footer__text
+		&__text {
+			@include adaptiveValue("font-size", 18, 16);
+			line-height: lh(27, 18);
+			color: rgba(255, 255, 255, 0.8);
+			max-width: rem(318);
+
+			a {
+				color: $mainOrange;
+				transition: color 0.2s ease 0s;
+				@media (any-hover: hover) {
+					&:hover {
+						color: #ffffff;
+					}
+				}
+			}
+		}
+	}
+
+	.social-footer {
+		display: flex;
+		align-items: center;
+		gap: rem(22);
+		@include adaptiveValue("margin-top", 30, 20);
+		// .social-footer__item
+		&__item {
+		}
+		// .social-footer__link
+		&__link {
+		}
+	}
+
+	// ==========================================================================================================================
+
+	// .body-footer__bottom
+	&__bottom {
+		padding-top: rem(30);
+		display: flex;
+		justify-content: space-between;
+		column-gap: rem(50);
+		font-size: rem(14);
+		line-height: lh(27, 14);
+		color: rgba(255, 255, 255, 0.8);
+
+		@media (max-width: $tablet) {
+			flex-direction: column;
+			row-gap: rem(20);
+		}
+	}
+
+	// .body-footer__rules
+	&__rules {
+		@media (min-width: $tablet) {
+			flex-basis: rem(817);
+		}
+	}
+
+	// .body-footer__copy
+	&__copy {
+		@media (max-width: $tablet) {
+			text-align: center;
+		}
+		span {
+			white-space: nowrap;
+		}
+	}
+}
+
+// ==========================================================================================================================
+
+//  Стили при появлении споёлеров (в основном коде не сработало по родителю "._spoller-init"
+
+// .spoller-item-footer__title
+.spoller-item-footer {
+	&__title {
+		// здесь работает (? Ищен не во всех родителях, до определенного уровня вложенности)
+		._spoller-init & {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: em(10, 16);
+			width: 100%;
+
+			&::after {
+				content: "\e90c";
+				display: block;
+				font-family: "iconfont" !important;
+				speak: never;
+				font-style: normal;
+				font-weight: normal;
+				font-variant: normal;
+				text-transform: none;
+				line-height: 1;
+				color: #ffffff;
+				font-size: em(10, 16);
+				transform: rotate(180deg);
+				scale: 0.7;
+				transition: transform 0.3s ease 0s;
+			}
+
+			&._spoller-active {
+				&::after {
+					transform: rotate(0deg);
+				}
+			}
+		}
+	}
+}
+
+// .spoller-item-footer__body
+.spoller-item-footer__body {
+	._spoller-init & {
+		padding-bottom: rem(30);
+
+		// Для родителя последнего элемента
+		.body-footer__item:last-child & {
+			padding-bottom: 0;
+		}
+	}
+}
+
+// ==========================================================================================================================
+
+.footer-subscribe {
+	// .footer-subscribe__label
+	&__label {
+		line-height: lh(27, 18);
+		color: rgba(255, 255, 255, 0.8);
+		display: block;
+		&:not(:last-child) {
+			margin-bottom: em(15, 18);
+		}
+	}
+
+	// .footer-subscribe__line
+	&__line {
+		display: flex;
+		max-width: rem(380);
+		&:not(:last-child) {
+			margin-bottom: em(15, 18);
+		}
+	}
+
+	// .footer-subscribe__input
+	&__input {
+		background: rgba(255, 255, 255, 0.05);
+		border-radius: rem(3) 0 0 rem(3);
+		min-height: rem(50);
+		font-size: rem(16);
+		line-height: lh(20, 16);
+		color: rgba(255, 255, 255, 0.52);
+		border: rem(1) solid #ffffff;
+		border-right-color: transparent;
+		flex-grow: 1;
+		@include adaptiveValue("padding-left", 24, 20);
+		@include adaptiveValue("padding-right", 24, 20);
+		z-index: 1;
+		width: 100%; // Всегда для инпутов
+	}
+
+	// .footer-subscribe__button
+	&__button {
+		background-color: $mainOrange;
+		position: relative;
+		left: rem(-1);
+		border-radius: 0 rem(3) rem(3) 0;
+		&::before {
+			font-size: rem(15.79);
+			color: #ffffff;
+		}
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex: 0 0 rem(50);
+	}
+
+	// .footer-subscribe__line-checkbox
+	&__line-checkbox {
+		max-width: rem(380);
+		display: flex;
+		align-items: flex-start;
+		font-size: rem(16);
+		line-height: lh(22, 16);
+		color: rgba(255, 255, 255, 0.8);
+		gap: em(20, 16);
+	}
+
+	// .footer-subscribe__checkbox
+	&__checkbox {
+		flex: 0 0 rem(16);
+		height: rem(16);
+		position: relative;
+		top: em(4, 16);
+	}
+
+	// .footer-subscribe__label-checkbox
+	&__label-checkbox {
+		a {
+			transition: color 0.2s ease 0s;
+			@media (any-hover: hover) {
+				&:hover {
+					color: $mainOrange;
+				}
+			}
+		}
+	}
+}
+
+// ==========================================================================================================================

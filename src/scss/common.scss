@@ -1,0 +1,711 @@
+// В этом файле пишем стили для одинковых блоков (section) на сайте
+
+// Хиты продаж
+
+.products-slider {
+	// .products-slider__container
+	&__container {
+	}
+
+	// .products-slider__header
+	&__header {
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+		gap: rem(15);
+		flex-wrap: wrap;
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 30, 0);
+		}
+	}
+
+	// .products-slider__title
+	&__title {
+		font-weight: 700;
+		@include adaptiveValue("font-size", 30, 24);
+		line-height: lh(46, 30);
+		letter-spacing: 0.05em;
+		color: $mainDarkColor;
+	}
+
+	// .products-slider__more
+	&__more {
+		font-weight: 600;
+		font-size: rem(18);
+		line-height: lh(46, 18);
+		letter-spacing: 0.05em;
+		color: rgba(20, 20, 20, 0.58);
+		display: inline-flex;
+		flex-direction: row-reverse;
+		align-items: center;
+		gap: em(15, 18);
+		transition: color 0.3s ease 0s;
+
+		&::before {
+			font-size: em(15.79, 18);
+			color: $mainOrange;
+		}
+
+		@media (any-hover: hover) {
+			&:hover {
+				color: $mainOrange;
+			}
+		}
+	}
+
+	// .products-slider__slider
+	&__slider {
+		margin-left: rem(-15);
+		margin-right: rem(-15);
+		padding-left: rem(15);
+		padding-right: rem(15);
+	}
+	// .products-slider__swiper
+	&__swiper {
+		&:not(:last-child) {
+			margin-top: rem(30);
+			@include adaptiveValue("margin-bottom", 50, 20);
+		}
+	}
+	// .products-slider__slide
+	&__slide {
+		height: auto; // иначе слайды не вытягиваются в высоту на 100% (посему-то)
+	}
+
+	// .products-slider__product-card
+	&__product-card {
+	}
+}
+
+// .product-card
+.product-card {
+	background: #fefefe;
+	display: grid;
+	height: 100%;
+	grid-template-rows: auto 1fr;
+	box-shadow: 0 rem(4) rem(15) rgba(0, 0, 0, 0.1);
+	transition: box-shadow 0.3s ease 0s;
+	position: relative;
+
+	@media (any-hover: hover) {
+		&:hover {
+			box-shadow: 0 rem(4) rem(15) rgba(0, 0, 0, 0.3);
+		}
+	}
+
+	// .product-card__sale
+	&__sale {
+		position: absolute;
+		top: rem(20);
+		left: 0;
+		background-color: $mainOrange;
+		color: #fff;
+		font-weight: 600;
+		line-height: lh(22, 18);
+		padding: rem(6) rem(22);
+		min-height: rem(35);
+		z-index: 1;
+		border-radius: 0 rem(3) rem(3) 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		pointer-events: none; // Элемент не может быть целью (target) событий мыши
+	}
+
+	// .product-card__image
+	&__image {
+		padding-top: rem(22);
+		padding-bottom: rem(22);
+		@include adaptiveValue("padding-left", 52, 20);
+		@include adaptiveValue("padding-right", 52, 20);
+	}
+
+	// span (Контейнер для адаптивного изоображения). Основные стили в файле модификаторов
+	&__image-wrap-bg-contain {
+		padding-bottom: percent(240, 270);
+	}
+
+	// .product-card__body
+	&__body {
+		padding: rem(30) rem(20);
+		display: flex;
+		flex-direction: column;
+	}
+
+	// .product-card__title
+	&__title {
+		flex-grow: 1;
+	}
+
+	// .product-card__link-title
+	&__link-title {
+		font-weight: 600;
+		font-size: rem(20);
+		line-height: lh(34, 20);
+		color: $mainDarkColor;
+		display: inline-block;
+		transition: color 0.2s ease 0s;
+
+		@media (any-hover: hover) {
+			&:hover {
+				color: $mainOrange;
+			}
+		}
+	}
+
+	// .product-card__info
+	&__info {
+	}
+
+	// .product-card__rating
+	&__rating {
+		display: flex;
+		justify-content: space-between;
+		&:not(:last-child) {
+			margin-bottom: rem(20);
+		}
+	}
+
+	// .product-card__footer
+	&__footer {
+		border-top: rem(1) solid rgba(20, 20, 20, 0.5);
+		padding-top: rem(20);
+		padding-bottom: rem(26);
+		display: flex;
+		align-items: center;
+		gap: rem(15);
+		flex-wrap: wrap;
+	}
+
+	// .product-card__price
+	&__price {
+		flex-grow: 1;
+		font-weight: 600;
+		font-size: rem(20);
+		line-height: lh(34, 20);
+		color: $mainDarkColor;
+	}
+
+	// .product-card__compare
+	// .product-card__favorite
+	&__compare,
+	&__favorite {
+		font-size: rem(24.62);
+		transition: color 0.3s ease 0s;
+
+		@media (any-hover: hover) {
+			&:hover {
+				color: $mainOrange;
+			}
+		}
+	}
+
+	// .product-card__cart
+	&__cart {
+		width: 100%;
+		font-size: rem(18);
+		flex-direction: row-reverse;
+		gap: em(15.9, 18);
+
+		span {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			&::before {
+				font-size: em(17.37, 18);
+				font-size: rem(17.37);
+			}
+		}
+	}
+}
+
+// .info-product-card
+.info-product-card {
+	display: flex;
+	justify-content: space-between;
+	gap: rem(15);
+	color: #ababab;
+	font-weight: 600;
+	font-size: rem(16);
+	line-height: lh(34, 16);
+	&:not(:last-child) {
+		margin-bottom: rem(5);
+	}
+
+	// .info-product-card__size
+	&__size {
+	}
+
+	// .info-product-card__materials
+	&__materials {
+		text-align: right;
+	}
+}
+
+.rating {
+	// Все стили в отдельном файле rating.scss
+}
+
+.products-slider {
+	// .products-slider__dots
+	&__dots {
+		// Вынесены стили в отдельный класс (ниже)
+	}
+}
+
+// ==========================================================================================================================
+
+// Пагинация для слайдеров
+.slider-dotts {
+	display: grid;
+	grid-auto-flow: column;
+	justify-content: start;
+	margin: 0 auto;
+	overflow: hidden;
+
+	// Булеты
+	.swiper-pagination-bullet {
+		&:not(:last-child) {
+			margin-right: rem(17);
+		}
+		width: rem(18);
+		height: rem(24);
+		position: relative;
+		transition: width 0.3s ease;
+		cursor: pointer;
+		&::before {
+			content: "";
+			width: 100%;
+			height: rem(2);
+			background-color: #898989;
+			position: absolute;
+			left: 0;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+		&::after {
+			content: "";
+			width: rem(10);
+			height: rem(10);
+			background-color: $mainOrange;
+			border-radius: 50%;
+			position: absolute;
+			left: 0;
+			top: 50%;
+			transform: translateY(-50%);
+			opacity: 0;
+		}
+
+		&-active {
+			&::before {
+				background-color: $mainOrange;
+			}
+			&::after {
+				transition: left 5s linear;
+				left: calc(100% - rem(10));
+				opacity: 1;
+			}
+		}
+	}
+}
+
+// ==========================================================================================================================
+
+// Новинки
+
+.products-new {
+	padding-top: rem(18);
+	padding-bottom: rem(40);
+
+	@media (min-width: $tablet) {
+		background: url("@img/new-products/bg.jpg") bottom / cover no-repeat;
+	}
+
+	@media (max-width: $tablet) {
+		padding-top: rem(30);
+	}
+
+	// .products-new__container
+	&__container {
+		display: grid;
+		grid-template-columns: percent(400, $maxWidthContainer) 1fr;
+		position: relative;
+		z-index: 1;
+
+		@media (max-width: $pc) {
+			grid-template-columns: 1fr 2fr;
+		}
+
+		@media (max-width: $tablet) {
+			grid-template-columns: 1fr;
+			gap: rem(60);
+		}
+	}
+
+	// .products-new__body
+	&__body {
+		@include adaptiveValue("padding-right", 60, 30, $containerWidth, 992);
+
+		@media (max-width: $tablet) {
+			padding-right: 0;
+		}
+	}
+
+	// .products-new__title
+	&__title {
+		font-weight: 700;
+		@include adaptiveValue("font-size", 30, 24, 991.98);
+		line-height: lh(46, 30);
+		letter-spacing: 0.05em;
+		color: #ffffff;
+		@include adaptiveValue("margin-bottom", 30, 20, 991.98);
+	}
+	// .products-new__text
+	&__text {
+		@include adaptiveValue("font-size", 18, 16, 1, 991.98);
+		line-height: lh(27, 18);
+		letter-spacing: 0.03em;
+		color: rgba(255, 255, 255, 0.7);
+		@include adaptiveValue("margin-bottom", 66, 20, 1, 991.98);
+	}
+	// .products-new__link
+	&__link {
+	}
+
+	// .products-new__slider
+	&__slider {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+
+		@media (min-width: $tablet) {
+			padding-top: rem(37);
+		}
+	}
+
+	// .products-new__swiper
+	&__swiper {
+		margin-bottom: rem(43);
+	}
+	// .products-new__slide
+	&__slide {
+	}
+
+	// .products-new__dots
+	&__dots {
+	}
+}
+
+.product-card {
+	// готов выше (ранее)
+	.products-new & {
+		box-shadow: none;
+	}
+}
+// ==========================================================================================================================
+
+// Больше новинок
+.link-arrow {
+	font-weight: 600;
+	@include adaptiveValue("font-size", 20, 18, 991.98);
+	line-height: lh(46, 20);
+	letter-spacing: 0.05em;
+	color: $mainOrange;
+	display: flex;
+	flex-direction: row-reverse;
+	align-items: center;
+	justify-content: flex-end;
+	gap: em(20, 20);
+	transition: gap 0.3s ease 0s;
+
+	&::before {
+		font-size: em(16.99, 20);
+	}
+
+	@media (any-hover: hover) {
+		&:hover {
+			gap: rem(25);
+		}
+	}
+}
+
+// ==========================================================================================================================
+
+.title {
+	font-weight: 700;
+	@include adaptiveValue("font-size", 24, 20);
+	line-height: lh(29, 24);
+	color: #141414;
+	&:not(:last-child) {
+		margin-bottom: em(25, 24);
+	}
+}
+
+// Хлебные крошки
+.breadcrumbs {
+	white-space: nowrap; // Слова нельзая переносить
+	overflow: auto; // можно прокручивать горизонтально, если не помещается
+	min-height: rem(20);
+	padding-top: rem(2); // фокус при табе подрезался
+	padding-bottom: rem(2);
+
+	// .breadcrumbs__list
+	&__list {
+		display: flex;
+		// flex-wrap: wrap; // этим можно включиьт перенос на новую строку пунктов хлебных крошек
+		@include adaptiveValue("gap", 15, 13);
+	}
+
+	// .breadcrumbs__item
+	&__item {
+		@include adaptiveValue("font-size", 16, 14);
+		line-height: lh(20, 16);
+	}
+
+	// .breadcrumbs__link
+	&__link {
+		display: flex;
+		align-items: baseline;
+		@include adaptiveValue("gap", 15, 13);
+		span {
+			color: #141414;
+			opacity: 0.5;
+			transition: all 0.2s ease 0s;
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				span {
+					opacity: 1;
+					color: $mainOrange;
+				}
+			}
+		}
+
+		&::after {
+			content: "\e90e";
+			font-family: "iconfont" !important;
+			speak: never;
+			font-style: normal;
+			font-weight: normal;
+			font-variant: normal;
+			text-transform: none;
+			line-height: 1;
+			font-size: em(11.79, 16);
+			color: #141414;
+			opacity: 0.5;
+		}
+	}
+
+	// .breadcrumbs__current
+	&__current {
+		color: $mainOrange;
+	}
+}
+
+// ==========================================================================================================================
+
+// Селект
+.select_control {
+	@media (min-width: $tablet) {
+		max-width: rem(374);
+	}
+
+	.select-custom {
+		font-size: rem(16);
+		line-height: lh(20, 16);
+		color: rgba(0, 0, 0, 0.5);
+	}
+
+	.select-custom__header,
+	.select-custom__body {
+		border: rem(1) solid rgba(4, 4, 4, 0.3);
+	}
+
+	.select-custom__header,
+	.select-custom__option {
+		padding-left: rem(20);
+		padding-right: rem(20);
+	}
+
+	.header-select__icon {
+		&::after {
+			content: "\e90e";
+			font-family: "iconfont" !important;
+			speak: never;
+			font-style: normal;
+			font-weight: normal;
+			font-variant: normal;
+			text-transform: none;
+			line-height: 1;
+			font-size: em(11.79, 16);
+			transform: rotate(90deg);
+			margin-top: em(2, 11.79);
+		}
+	}
+
+	._select-active .header-select__icon::after {
+		transform: rotate(-90deg);
+	}
+}
+
+// ==========================================================================================================================
+
+// Пагинация
+.pagination {
+	display: flex;
+	align-items: center;
+	gap: em(30, 18);
+	@include adaptiveValue("gap", 30, 18, 350, 320);
+
+	// .pagination__arrow
+	&__arrow {
+		color: $mainOrange;
+		&::before {
+			font-size: em(20, 18);
+			display: flex;
+			align-items: center;
+		}
+		&:disabled {
+			color: rgba(0, 0, 0, 0.12);
+		}
+
+		// .pagination__arrow_left
+		&_left {
+			transform: rotate(180deg);
+		}
+
+		// .pagination__arrow_right
+		&_right {
+		}
+	}
+
+	// .pagination__list
+	&__list {
+		display: flex;
+		align-items: center;
+		gap: em(14, 18);
+	}
+
+	// .pagination__item
+	&__item {
+		line-height: lh(32, 18);
+		color: #000000;
+	}
+
+	// .pagination__link
+	&__link {
+		width: em(34, 18);
+		height: em(34, 18);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 50%;
+		transition: all 0.1s ease 0s;
+
+		&._active {
+			background-color: $mainOrange;
+			color: #ffffff;
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: $mainOrange;
+				color: #ffffff;
+			}
+		}
+	}
+}
+
+// ==========================================================================================================================
+
+// Селекты товара
+.select-product {
+	height: rem(40);
+
+	.select-custom__header {
+		padding: 0;
+		font-size: rem(16);
+		line-height: lh(17, 14);
+		color: rgba(20, 20, 20, 0.5);
+		border: none;
+		background-color: #fefefe;
+	}
+
+	.header-select__text {
+		padding-left: rem(20);
+		border: rem(1) solid rgba(4, 4, 4, 0.15);
+		border-right: none;
+		border-radius: rem(3) 0 0 rem(3);
+	}
+
+	.header-select__text._changed {
+		color: rgba(20, 20, 20, 1);
+	}
+
+	.header-select__icon {
+		flex: 0 0 rem(40);
+		height: rem(40);
+		background: $mainDarkColor;
+
+		&::after {
+			content: "\e90e";
+			font-family: "iconfont" !important;
+			speak: never;
+			font-style: normal;
+			font-weight: normal;
+			font-variant: normal;
+			text-transform: none;
+			line-height: 1;
+			color: $mainOrange;
+			font-size: em(11.79, 14);
+			transform: rotate(90deg);
+		}
+	}
+
+	.select-custom._select-active .header-select__icon::after {
+		transform: rotate(-90deg);
+	}
+
+	.select-custom__body {
+		margin-top: rem(10);
+		border: none;
+		border-radius: 0;
+		background: #fefefe;
+		box-shadow: 0px rem(4) rem(20) rgba(0, 0, 0, 0.1);
+	}
+
+	.select-custom__list {
+		padding: rem(20) 0;
+	}
+
+	// Опция
+	.select-custom__option {
+		padding: rem(10) rem(20);
+		color: $mainColor;
+		font-size: rem(16);
+		line-height: lh(20, 16);
+	}
+
+	.select-custom__option._option-hover,
+	.select-custom__option:focus {
+		background-color: $mainDarkColor;
+		color: #fff;
+	}
+
+	// Заголовок, когда селект Открыт
+	.select-custom._select-active .select-custom__header {
+		border-radius: rem(3);
+		box-shadow: none;
+
+		// Курсор над Заголовком селекта
+		&:hover {
+			box-shadow: 0 0 rem(7) rgba(0, 0, 0, 0.25);
+		}
+	}
+
+	// Тело селекта
+	.select-custom._select-active .select-custom__body {
+		border-radius: 0;
+	}
+}
+
+// ==========================================================================================================================

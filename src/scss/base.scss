@@ -1,0 +1,54 @@
+// Подключаем нужные стили (раскомментировать)
+
+// Модификаторы (всегда включены)
+@import "base/modifiers.scss";
+
+// Меню бургер
+// Сниппет (HTML): "burger"
+@import "base/menu-burger.scss";
+
+// Полключаем элементы форм (кнопки, инпуты, селекты, подсказки и прочее)
+// Для подключения нужных элементов нужно перейти в файл base/forms/_forms.scss
+@import "base/forms/forms";
+
+// Popups
+// Требуется подключение HTML-блока в основном файле index.html: @@include('html/blocks/_popup.html',{})
+// Требуется подключение javascript в app.js
+@import "base/popup";
+
+// Tooltips (подсказки) + JS
+// Добавляем элементу атрибут data-tooltip="Подсказка"
+@import "base/tooltips";
+
+// Range (Ползунок диапазона) + JS
+// Здесь все стандартные стили для отображения слайдера диапазона
+// Сниппет (HTML): "sel"
+@import "base/range";
+
+// Swiper + JS
+// Сниппет (HTML): "swiper"
+@import "../../node_modules/swiper/swiper.min"; // только основные стили Swiper (В в большинстве случаев этого достаточно)
+// @import "../../node_modules/swiper/modules/navigation/navigation"; // стили, необходимые для модуля навигации
+// @import "../../node_modules/swiper/modules/pagination/pagination"; // стили, необходимые для модуля Pagination
+// @import "../../node_modules/swiper/modules/scrollbar/scrollbar"; // стили, необходимые для модуля полосы прокрутки
+// @import "../../node_modules/swiper/modules/keyboard/keyboard"; // стили, необходимые для модуля клавиатуры
+// @import "../../node_modules/swiper/modules/mousewheel/mousewheel"; // стили, необходимые для модуля Mousewheel
+// @import "../../node_modules/swiper/modules/autoplay/autoplay"; // стили, необходимые для модуля Autoplay
+// @import "../../node_modules/swiper/modules/controller/controller"; // стили, необходимые для модуля контроллера
+// @import "../../node_modules/swiper/modules/effect-cards/effect-cards"; // стили, необходимые для модуля Эффект карт
+// @import "../../node_modules/swiper/modules/effect-coverflow/effect-coverflow"; // стили, необходимые для модуля Coverflow Effect
+// @import "../../node_modules/swiper/modules/effect-creative/effect-creative"; // стили, необходимые для модуля Creative Effect
+// @import "../../node_modules/swiper/modules/effect-cube/effect-cube"; // стили, необходимые для модуля Cube Effect
+// @import "../../node_modules/swiper/modules/effect-fade/effect-fade"; // стили, необходимые для модуля Fade Effect
+// @import "../../node_modules/swiper/modules/effect-flip/effect-flip"; // стили, необходимые для модуля Flip Effect
+// @import "../../node_modules/swiper/modules/free-mode/free-mode"; // стили, необходимые для модуля Free Mode
+// @import "../../node_modules/swiper/modules/grid/grid"; // стили, необходимые для модуля Grid
+// @import "../../node_modules/swiper/modules/hash-navigation/hash-navigation"; // стили, необходимые для модуля Hash Navigation
+// @import "../../node_modules/swiper/modules/history/history"; // стили, необходимые для модуля истории
+// @import "../../node_modules/swiper/modules/manipulation/manipulation"; // стили, необходимые для модуля Manipulation
+// @import "../../node_modules/swiper/modules/parallax/parallax"; // стили, необходимые для модуля Parallax
+// @import "../../node_modules/swiper/modules/thumbs/thumbs"; // стили, необходимые для модуля Thumbs
+// @import "../../node_modules/swiper/modules/virtual/virtual"; // стили, необходимые для виртуального модуля
+// @import "../../node_modules/swiper/modules/zoom/zoom"; // стили, необходимые для модуля Zoom
+// @import "../../node_modules/swiper/modules/a11y/a11y"; // стили, необходимые для модуля A11y
+// @import "../../node_modules/swiper/swiper-bundle.min"; // все стили Swiper, включая стили всех модулей (например, навигация, нумерация страниц и т. д.)

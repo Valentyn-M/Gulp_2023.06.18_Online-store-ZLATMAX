@@ -1,0 +1,45 @@
+.file {
+	// .file__label
+	&__label {
+	}
+
+	// .file__item (оболочка)
+	&__item {
+		position: relative;
+	}
+
+	// .file__input
+	&__input {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		opacity: 0;
+		cursor: pointer;
+		font-size: 0; // Чтобы нормально работал cursor: pointer;
+	}
+
+	// .file__button
+	&__button {
+		min-height: rem(40);
+		padding: 0 rem(20);
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		background-color: olive;
+		border-radius: rem(30);
+		color: #fff;
+	}
+
+	// .file__preview
+	&__preview {
+		display: inline-block;
+		max-width: rem(100);
+		padding-top: rem(10); // Отступ от кнопки "Выбрать" до превью изображения
+
+		img {
+			max-width: 100%;
+		}
+	}
+}

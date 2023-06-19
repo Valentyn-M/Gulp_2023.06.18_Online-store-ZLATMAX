@@ -1,0 +1,59 @@
+.quantity {
+	// Переменные:
+	height: rem(50); // Высота всего блока
+	// Кнопки
+	$buttonsWidth: rem(50); // Ширина кнопок
+	$buttonsFontsize: rem(24); // Размер шрифта кнопок
+	$buttonsBackground: $mainDarkColor; // Фон кнопок
+	$buttonsColor: #fff; // Цвет текста кнопок
+	// Инпут
+	$inputWidth: rem(50); // Ширина инпута
+	$inputFontsize: rem(18); // Размер шрифта инпута
+	$inputBackground: rgba(210, 210, 210, 0.07); // Фон инпута
+	$inputColor: #000; // Цвет текста инпута
+
+	// Настройки всего блока
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: rem(3);
+	overflow: hidden;
+	font-size: $buttonsFontsize;
+
+	// .quantity__button
+	&__button {
+		width: $buttonsWidth;
+		height: 100%;
+		background-color: $buttonsBackground;
+		color: $buttonsColor;
+
+		// .quantity__button_plus
+		&_plus {
+		}
+
+		// .quantity__button_minus
+		&_minus {
+		}
+	}
+
+	// .quantity__input
+	&__input {
+		width: $inputWidth;
+		height: 100%;
+
+		input {
+			width: 100%;
+			height: 100%;
+			background: $inputBackground;
+			font-size: $inputFontsize;
+			color: $inputColor;
+			text-align: center;
+			transition: box-shadow 0.2s ease 0s;
+
+			&:focus {
+				outline: none;
+				box-shadow: inset 0 0 rem(7) rgba(0, 0, 0, 0.3);
+			}
+		}
+	}
+}

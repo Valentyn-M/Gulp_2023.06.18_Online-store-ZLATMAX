@@ -1,0 +1,87 @@
+.checkbox {
+	// Переменные для всего чекбокса (потомки это унаследуют)
+	$fontSize: 16; // Размер шрифта
+	$lineHeight: 20; // Межстрочный интервал
+	$marginBottom: 20; // Отступы между чекбоксами (если один чекбокс, то отступа не будет)
+	// Параметры для всего чекбокса (потомки это унаследуют)
+	display: flex;
+	align-items: center;
+	color: inherit;
+	font-size: rem($fontSize);
+	line-height: lh($lineHeight, $fontSize);
+	&:not(:last-child) {
+		margin-bottom: em($marginBottom, $fontSize);
+	}
+
+	// .checkbox__input
+	&__input {
+		display: none;
+	}
+
+	// Переменные для label и псевдоэлементов
+	$squareOuterSize: rem(18); // Размеры внешнего квадратика
+	$squareInnerSize: rem(12); // Размеры внутреннего квадратика
+	$squareOuterBorderRadius: rem(2); // Скругление углов Большого квадратика
+	$squareInnerBorderRadius: rem(1); // Скругление углов Маленького квадратика
+	$squareOuterColor: rgba(0, 0, 0, 0.2); // Цвет обводки Большого квадратика
+	$squareOuterColorActive: $mainOrange; // Цвет обводки Большого квадратика (активный)
+	$squareInnerColor: $mainOrange; // Цвет заливки Маленького квадратика
+	$squareVerticalOffset: 1; // Смещение кватратика по вертикали (подбирать в зависимости от line-height: чем больше line-height, тем больше смещение)
+
+	// .options__label
+	&__label {
+		// display: inline-flex; // Если сотоит из одного слова
+		display: flex; // Растягиваем на всю ширину
+		width: 100%; // Растягиваем на всю ширину
+		align-items: center;
+		gap: em(15, $fontSize);
+		position: relative;
+		cursor: pointer;
+
+		// Кастомный Квадратик
+		&::before {
+			content: "";
+			height: $squareOuterSize;
+			flex: 0 0 $squareOuterSize; // width нельзя для флекс элемента, чтобы не сжимало его
+			align-self: flex-start; // Чтобы нормально отображался кружок при переносе текста (сверху)
+			transform: translateY(em($squareVerticalOffset, $fontSize)); // На крупном шрифте можно 4px
+			background-color: #fff;
+			border-radius: $squareOuterBorderRadius;
+			border: rem(1) solid $squareOuterColor;
+		}
+
+		// Заполнитель в кружочке (checked)
+		&::after {
+			content: "";
+			position: absolute;
+			width: $squareInnerSize;
+			height: $squareInnerSize;
+			left: calc(($squareOuterSize - $squareInnerSize) / 2);
+			top: calc(($squareOuterSize - $squareInnerSize) / 2);
+			transform: translateY(em($squareVerticalOffset, $fontSize)) scale(0); // scale(0) - Скрываем кружок
+			border-radius: $squareInnerBorderRadius;
+			background-color: $squareInnerColor;
+			transition: transform 0.3s ease 0s;
+		}
+	}
+
+	// Активный чекбокс
+	&__input:checked + &__label::before {
+		border: rem(1) solid $squareOuterColorActive;
+	}
+	&__input:checked + &__label::after {
+		transform: translateY(em($squareVerticalOffset, $fontSize)) scale(1);
+	}
+
+	// .checkbox__text
+	&__text {
+		display: flex;
+		align-items: flex-start;
+		gap: em(15, $fontSize);
+
+		small {
+			color: $mainOrange;
+			font-size: 1em;
+		}
+	}
+}

@@ -1,0 +1,85 @@
+// Добавляем элементу атрибут data-tooltip="Подсказка"
+[data-tooltip] {
+	position: relative;
+}
+
+[data-tooltip] .tooltip {
+	line-height: 1;
+	font-size: 0.9em; // чуть меньше основного шрифта
+	user-select: none;
+	pointer-events: none;
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	font-weight: inherit;
+	width: unset; // на всякий случай
+	$bgColor: #333; // цвет фона
+	$color: #fff; // цвет текста
+	opacity: 0; // Изначально прячем (чтобы показать с анимацией)
+
+	/* 
+	Разрешить содержимому устанавливать размер всплывающих подсказок,
+	это также убережет их от неприятностей
+	*/
+	min-width: 3em;
+	max-width: 21em;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	padding: 1ch 1.5ch;
+	border-radius: 0.3ch;
+	box-shadow: 0 0.5em 2em -0.4em rgba(0, 0, 0, 0.35);
+	background-color: $bgColor; // цвет фона
+	color: $color; // цвет текста
+	z-index: 1000;
+
+	// Указатель подсказки
+	&::before {
+		// Обнуляем лишнее
+		width: unset;
+		height: unset;
+		border-radius: unset;
+		opacity: unset;
+		background: unset;
+		// Настраиваем
+		content: "";
+		position: absolute;
+		border: rem(10) solid transparent;
+		z-index: 1001;
+	}
+
+	// Расположение подсказки
+	bottom: calc(100% + rem(10));
+	left: 50%;
+	transform: translate(-50%, 0.5em);
+
+	// Указатель смотрит вниз
+	&::before {
+		top: 100%;
+		border-bottom-width: 0;
+		border-top-color: $bgColor; // цвет фона подсказки
+		left: 50%;
+		transform: translate(-50%, 0);
+	}
+}
+
+// Появление с анимацией
+[data-tooltip] .tooltip {
+	animation: tooltip-vert 300ms ease-out forwards;
+	&::before {
+		animation: tooltip-before-vert 300ms ease-out forwards;
+	}
+}
+
+@keyframes tooltip-vert {
+	to {
+		opacity: 0.9;
+		transform: translate(-50%, 0);
+	}
+}
+@keyframes tooltip-before-vert {
+	to {
+		transform: translate(-50%, 0);
+	}
+}

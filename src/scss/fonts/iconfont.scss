@@ -1,0 +1,61 @@
+[class^="icon-"]::before,
+[class*=" icon-"]::before {
+	/* use !important to prevent issues with browser extensions that change fonts */
+	font-family: "iconfont" !important;
+	speak: never;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-arrow-more:before {
+	content: "\e90e";
+}
+.icon-arrow-spoller:before {
+	content: "\e90c";
+}
+.icon-arrow-left:before {
+	content: "\e90a";
+}
+.icon-arrow-down:before {
+	content: "\e900";
+}
+.icon-arrow-right:before {
+	content: "\e901";
+}
+.icon-cart:before {
+	content: "\e902";
+}
+.icon-clock:before {
+	content: "\e903";
+}
+.icon-compare:before {
+	content: "\e904";
+}
+.icon-email:before {
+	content: "\e905";
+}
+.icon-favorite:before {
+	content: "\e906";
+}
+.icon-location:before {
+	content: "\e907";
+}
+.icon-logo:before {
+	content: "\e908";
+}
+.icon-phone:before {
+	content: "\e909";
+}
+.icon-search:before {
+	content: "\e90b";
+}
+.icon-user:before {
+	content: "\e90d";
+}

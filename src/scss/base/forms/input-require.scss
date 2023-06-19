@@ -1,0 +1,80 @@
+// Стили для инпута
+._input-error {
+	color: red !important;
+	box-shadow: inset 0 0 rem(7) red !important;
+}
+
+// Показываем подсказку с ошибкой
+._form-error {
+	display: block !important;
+	opacity: 0;
+}
+.footer-subscribe__line {
+	position: relative;
+}
+
+// Стили подсказки
+._form-error {
+	line-height: 1;
+	font-size: 0.9em; // чуть меньше основного шрифта
+	user-select: none;
+	pointer-events: none;
+	position: absolute;
+	text-align: center;
+
+	/* 
+	Разрешить содержимому устанавливать размер всплывающих подсказок
+   но это также убережет их от неприятностей
+	*/
+	min-width: 3em;
+	max-width: 21em;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	padding: 1ch 1.5ch;
+	border-radius: 0.3ch;
+	box-shadow: 0 0.5em 2em -0.4em rgba(0, 0, 0, 0.35);
+	background: #fff; // цвет фона
+	color: red; // цвет текста
+	z-index: 1000;
+
+	// Указатель подсказки
+	&::before {
+		content: "";
+		position: absolute;
+		border: rem(8) solid transparent;
+		z-index: 1001;
+	}
+
+	// Расположение подсказки
+	bottom: calc(100% + rem(8));
+	left: 30%; // немного смещаем подсказку
+	transform: translate(-50%, 0.5em);
+	// Указатель смотрит вниз
+	&::before {
+		top: 100%;
+		border-bottom-width: 0;
+		border-top-color: #fff; // цвет фона подсказки
+		left: 50%;
+		transform: translate(-50%, 0);
+	}
+}
+
+// Появление с анимацией (показывам вверх)
+._form-error {
+	animation: tooltip-vert 300ms ease-out forwards;
+	&::before {
+		animation: tooltip-before-vert 300ms ease-out forwards;
+	}
+}
+
+@keyframes tooltip-vert {
+	to {
+		opacity: 0.9;
+		transform: translate(-50%, 0);
+	}
+}
+@keyframes tooltip-before-vert {
+	to {
+		transform: translate(-50%, 0);
+	}
+}

@@ -1,0 +1,78 @@
+// BUTTONS (шаблон)
+
+// .button {
+// 	display: inline-flex;
+// 	justify-content: center;
+// 	align-items: center;
+// 	padding: 0 0;
+// 	min-height: rem(50);
+
+// 	@media (any-hover: hover) {
+// 		&:hover {
+// 		}
+// 	}
+// }
+
+.button {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	padding: rem(8) rem(48);
+	font-weight: 600;
+	color: #fff;
+	font-size: rem(18);
+	line-height: lh(32, 20);
+	text-align: center;
+	min-height: rem(50);
+	background: $mainOrange;
+	box-shadow: 0 rem(4) rem(20) rgba(232, 170, 49, 0.43);
+	transition: box-shadow 0.3s ease 0s;
+	border-radius: rem(3);
+
+	@media (any-hover: hover) {
+		&:hover {
+			box-shadow: 0 rem(4) rem(25) rgba(232, 170, 49, 0.63);
+		}
+	}
+
+	@media (max-width: $tablet) {
+		@include adaptiveValue("font-size", 20, 16, 479.98);
+	}
+
+	// Кнопка с крупным текстом
+	&_bold {
+		padding: rem(8) rem(52);
+		font-size: rem(20);
+	}
+
+	// Кнопка без заливки
+	&_border {
+		background-color: #fefefe;
+		box-shadow: none;
+		border: rem(2) solid $mainOrange;
+		padding: rem(7) rem(51);
+		width: 100%;
+		max-width: rem(326);
+		color: $mainOrange;
+		transition: all 0.3s ease 0s;
+
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: $mainOrange;
+				color: #fff;
+				box-shadow: none;
+			}
+		}
+	}
+
+	// Черная кнопка
+	&_black {
+		background: #000000;
+		box-shadow: 0 rem(4) rem(20) rgba(0, 0, 0, 0.25);
+		@media (any-hover: hover) {
+			&:hover {
+				box-shadow: 0 rem(4) rem(25) rgba(0, 0, 0, 0.45);
+			}
+		}
+	}
+}

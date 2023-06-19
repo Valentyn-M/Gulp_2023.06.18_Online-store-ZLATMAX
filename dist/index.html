@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="apple-touch-icon" sizes="180x180" href="/files/favicon/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/files/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/files/favicon/favicon-16x16.png">
+	<link rel="manifest" href="/files/favicon/site.webmanifest">
+	<link rel="mask-icon" href="/files/favicon/safari-pinned-tab.svg" color="#5bbad5">
+	<link rel="shortcut icon" href="/files/favicon/favicon.ico">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="msapplication-config" content="/files/favicon/browserconfig.xml">
+	<meta name="theme-color" content="#ffffff">
+	<title>ZLATMAX</title>
+</head>
+
+<body>
+	<div class="rootpage">
+		<div class="rootpage__container">
+			<h1 class="rootpage__title">Верстка «ZLATMAX»</h1>
+			<div class="rootpage__info">
+				<h2 class="rootpage__subtitle">Готовые страницы:</h2>
+				<ol class="rootpage__list list">
+					<li class="list__item"><a target="_blank" href="home.html">Главная</a></li>
+					<li class="list__item"><a target="_blank" href="catalog.html">Каталог</a></li>
+					<li class="list__item"><a target="_blank" href="product.html">Карточка товара</a>
+						<ul class="list__sublist sublist">
+							<li class="sublist__item"><a target="_blank" href="product_not-available.html">Карточка товара (нет
+									в
+									наличии)</a>
+							</li>
+							<li class="sublist__item"><a target="_blank" href="product_with-comments.html">Карточка товара (с
+									отзывами)</a>
+							</li>
+						</ul>
+					</li>
+				</ol>
+			</div>
+			<div class="rootpage__more-info">
+				<div class="rootpage__tnx tnx">
+					<h2 class="tnx__title">Спасибо за заказ!</h2>
+					<div class="tnx__text">
+						<p>Буду рад хорошему отзыву.</p>
+						<p>Обращайтесь еще!</p>
+					</div>
+				</div>
+				<div class="rootpage__contacts contacts">
+					<h2 class="contacts__title">Мои контакты:</h2>
+					<div class="contacts__text">
+						<p>Email: <a href="mailto:mostmobi@gmail.com">mostmobi@gmail.com</a></p>
+						<p>Viber: <a href="tel:+380664610459">+380664610459</a></p>
+						<p>Telegram: <a href="tel:+380664610459">+380664610459</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
+	*,
+	*::before,
+	*::after {
+		padding: 0;
+		margin: 0;
+		border: 0;
+		box-sizing: border-box;
+	}
+
+	body {
+		font-family: 'Roboto', sans-serif;
+		background-color: #1d545e;
+		color: #ebffeb;
+		line-height: 1.25;
+		overflow-wrap: break-word;
+	}
+
+	.rootpage__container {
+		max-width: 1200px;
+		padding: 30px;
+		margin: 0 auto;
+	}
+
+	h1 {
+		font-size: 30px;
+		font-weight: 500;
+		margin-bottom: 20px;
+	}
+
+	h2 {
+		font-size: 18px;
+		font-weight: 500;
+		margin-bottom: 8px;
+	}
+
+	a {
+		color: #f9de58;
+	}
+
+	ol {
+		padding-left: 28px;
+	}
+
+	ol>li ul {
+		padding-left: 28px;
+		margin-top: 8px;
+	}
+
+	li:not(:last-child) {
+		margin-bottom: 8px;
+	}
+
+	ul {
+		list-style-type: disc;
+	}
+
+	ul li::marker {
+		font-size: 1.1em;
+	}
+
+
+	.rootpage__info:not(:last-child) {
+		margin-bottom: 40px;
+	}
+
+	.rootpage__more-info {
+		display: inline-flex;
+		flex-direction: column;
+		gap: 15px;
+	}
+
+	.tnx,
+	.contacts {
+		background-color: #f95858;
+		padding: 15px 60px;
+		border-radius: 100px;
+	}
+
+	.contacts {
+		background-color: #319b94;
+	}
+
+	p:not(:last-child) {
+		margin-bottom: 5px;
+	}
+</style>
+
+</html>

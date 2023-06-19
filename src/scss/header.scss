@@ -1,0 +1,762 @@
+.header {
+	&__top {
+	}
+
+	&__body {
+	}
+
+	&__catalog {
+	}
+}
+
+.top-header {
+	background-color: $mainColor;
+	color: #fff;
+	padding: rem(10) 0;
+
+	&__container {
+		display: flex;
+		align-items: center;
+		gap: rem(20);
+		min-height: rem(50);
+		@media (max-width: $tablet) {
+			gap: rem(35);
+		}
+		@media (max-width: $mobileSmall) {
+			justify-content: space-between;
+		}
+	}
+
+	&__menu {
+		flex: 1 1 auto;
+	}
+}
+
+.menu-top-header {
+	&__list {
+		display: flex;
+		column-gap: 4.4%;
+		row-gap: rem(5);
+		flex-wrap: wrap;
+		@media (max-width: $tablet) {
+			flex-direction: column;
+			gap: rem(5);
+		}
+	}
+
+	&__item {
+		@media (max-width: $tablet) {
+			display: list-item;
+		}
+	}
+
+	&__link {
+		font-size: rem(16);
+		line-height: lh(20, 16);
+		color: #ffffff;
+		transition: color 0.2s;
+		@media (min-width: $tablet) {
+			&:hover {
+				color: $mainOrange;
+			}
+		}
+		@media (max-width: $tablet) {
+			font-size: rem(18);
+			padding: rem(10) 0;
+			display: flex;
+			align-items: center;
+			&::before {
+				width: rem(14);
+				flex-shrink: 0;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: rem(14);
+			}
+		}
+
+		&_catalog {
+			flex-direction: row-reverse;
+			justify-content: space-between;
+		}
+	}
+}
+
+.top-header__user {
+	font-weight: 600;
+	line-height: lh(22, 18);
+	display: inline-flex;
+	align-items: center;
+	transition: color 0.2s;
+	gap: em(15, 27.66);
+	&:hover {
+		color: $mainOrange;
+	}
+	&::before {
+		font-size: rem(27.66);
+	}
+	span {
+		@media (max-width: $tablet) {
+			display: none;
+		}
+	}
+}
+
+// .top-header__menu-icon
+.top-header__menu-icon {
+	display: none;
+	@media (max-width: $tablet) {
+		display: flex;
+		flex-grow: 1;
+		justify-content: end;
+	}
+	@media (max-width: $mobileSmall) {
+		flex-grow: 0;
+	}
+}
+
+.menu {
+	@media (max-width: $tablet) {
+		display: block;
+		position: fixed;
+		top: 0;
+		right: -100%;
+		width: 100%;
+		max-width: rem(320);
+		height: 100%;
+		overflow: auto;
+		background-color: $mainDarkColor;
+		padding: rem(70) rem(20) rem(35);
+		z-index: 2;
+		transition: right 0.3s ease 0s;
+		&::before {
+			content: "";
+			position: fixed;
+			top: 0;
+			right: -100%;
+			width: 100%;
+			max-width: calc(rem(320) - rem(1));
+			height: rem(70);
+			background-color: $mainDarkColor;
+			transition: right 0.3s ease 0s;
+		}
+		&._active {
+			right: 0;
+			&::before {
+				right: 0;
+			}
+		}
+	}
+
+	@media (min-width: rem(321)) {
+		border-left: rem(1) solid #e8eced;
+	}
+}
+
+//=============================================================================
+
+// Меню бургер - в файле "menu-burger.scss"
+
+//=============================================================================
+
+.body-header {
+	background-color: #ecf1f2;
+	padding: rem(10) 0;
+	@media (max-width: $mobileSmall) {
+		padding: 0;
+	}
+
+	&__container {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		min-height: rem(70);
+		gap: rem(30);
+	}
+
+	&__logo {
+		background: url("@img/icons//icons.svg#logo") 0 0 no-repeat;
+		display: block;
+		flex-basis: rem(190);
+		height: rem(42.45);
+		flex-shrink: 0;
+	}
+
+	&__search {
+	}
+
+	&__actions {
+	}
+}
+
+//===============================
+
+.body-header__search {
+	flex: 1 1 auto;
+	@media (min-width: rem(1400)) {
+		padding-right: 5.0314465%;
+	}
+	@media (max-width: $mobileSmall) {
+		padding: rem(15) 0;
+	}
+
+	.search-header {
+		position: relative;
+		margin: auto;
+		border-radius: rem(3);
+		@media (min-width: $tablet) {
+			max-width: rem(377);
+		}
+
+		&__button {
+			position: absolute;
+			top: 0;
+			left: rem(8);
+			height: rem(41);
+			width: rem(41);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			color: rgba(0, 0, 0, 0.5);
+			font-size: rem(12);
+			background-color: transparent;
+		}
+
+		&__input {
+			background: rgba(7, 7, 7, 0.03);
+			border: rem(1) solid rgba(4, 4, 4, 0.5);
+			border-radius: rem(3);
+			height: rem(41);
+			padding: 0 rem(20) 0 rem(50);
+			font-family: "Montserrat";
+			font-size: rem(14);
+			line-height: lh(17, 14);
+			color: rgba(0, 0, 0, 0.5);
+			width: 100%;
+			@media (max-width: $mobileSmall) {
+				border-color: #141414;
+			}
+		}
+
+		@media (max-width: $mobileSmall) {
+			background-color: #eee;
+		}
+	}
+}
+
+//===============================
+
+.actions-header {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	column-gap: rem(30);
+	@media (max-width: $tablet) {
+		display: none;
+	}
+
+	&__location {
+		font-weight: 600;
+		font-size: rem(18);
+		line-height: lh(22, 18);
+		color: #000000;
+		display: flex;
+		align-items: center;
+		margin-right: rem(25);
+		transition: color 0.2s;
+		&:hover {
+			color: $mainOrange;
+		}
+		&::before {
+			font-size: rem(24.42);
+			margin-right: em(10, 24.42);
+		}
+		@media (max-width: rem(1400)) {
+			margin-right: 0;
+		}
+	}
+
+	&__phones {
+	}
+
+	&__favorite {
+		font-size: rem(26.58);
+		transition: color 0.2s;
+		display: flex;
+		&:hover {
+			color: $mainOrange;
+		}
+	}
+
+	&__cart {
+		display: flex;
+		align-items: center;
+		column-gap: rem(15);
+	}
+}
+
+.phones-header {
+	white-space: nowrap;
+
+	&__items {
+		margin-bottom: rem(3);
+		@media (max-width: $tablet) {
+			margin-bottom: 0;
+		}
+	}
+
+	&__item {
+		position: relative;
+		display: flex;
+	}
+
+	&__phone {
+		font-weight: 600;
+		font-size: rem(18);
+		line-height: lh(22, 18);
+		transition: color 0.2s;
+		&:hover {
+			color: $mainOrange;
+		}
+		&::before {
+			font-size: rem(24);
+			display: none;
+			// @extend %ic;
+			// @extend .icon-phone;
+			// не сработало почему-то
+			@media (max-width: $mobileSmall) {
+				display: block;
+			}
+		}
+		span {
+			@media (max-width: $mobileSmall) {
+				display: none;
+			}
+		}
+	}
+
+	&__arrow {
+		color: $mainOrange;
+		font-size: rem(12);
+		margin-left: em(17, 12);
+		transition: transform 0.3s ease 0s;
+		&._spoller-active {
+			transform: rotate(180deg);
+		}
+		@media (max-width: $tablet) {
+			margin-left: em(12, 12);
+		}
+		@media (max-width: $mobileSmall) {
+			display: none;
+		}
+	}
+
+	&__list {
+		position: absolute;
+		left: 0;
+		top: 100%;
+		width: rem(194);
+		background-color: #fff;
+		border-radius: rem(5);
+		padding: rem(15);
+		margin-top: rem(5);
+		text-align: center;
+		box-shadow: 0 0 rem(5) rgba(0, 0, 0, 0.2);
+		z-index: 1;
+		color: $mainColor;
+		& li {
+			&:not(:last-child) {
+				margin-bottom: em(8, 18);
+			}
+			@media (min-width: $tablet) {
+				&:nth-child(3) {
+					margin-bottom: 0;
+				}
+			}
+		}
+	}
+
+	.phones-header__list-item_callback {
+		@media (max-width: $tablet) {
+			display: list-item;
+		}
+	}
+
+	&__callback {
+		font-weight: 700;
+		line-height: lh(22, 18);
+		color: $mainOrange;
+		transition: color 0.2s;
+		&:hover {
+			color: $mainColor;
+		}
+	}
+}
+
+.cart-header {
+	&__icon {
+		position: relative;
+		width: rem(37);
+		@media (max-width: $tablet) {
+			width: rem(35);
+		}
+		&:hover {
+			color: $mainOrange;
+		}
+		&::before {
+			font-size: rem(35.33);
+			@media (max-width: $tablet) {
+				font-size: rem(31.22);
+			}
+		}
+		span {
+			position: absolute;
+			top: 0;
+			right: 0;
+			font-size: rem(5.73);
+			color: #fff;
+			background-color: $mainOrange;
+			width: rem(14);
+			height: rem(14);
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+	}
+
+	&__body {
+		font-size: rem(16);
+		line-height: lh(20, 16);
+		@media (max-width: rem(1250)) {
+			display: none;
+		}
+	}
+
+	&__summ {
+		margin-right: rem(5);
+	}
+}
+
+.icon-cart {
+	&__link {
+		color: $mainOrange;
+		transition: color 0.2s;
+		&:hover {
+			color: $mainColor;
+		}
+	}
+}
+
+//=============================================================================
+
+.catalog-header {
+	background-color: $mainDarkColor;
+	box-shadow: 0 rem(4) rem(20) rgba(53, 53, 53, 0.18);
+	color: #fff;
+	position: relative;
+
+	&__container {
+	}
+
+	&__menu {
+	}
+}
+
+.menu-catalog {
+	@media (max-width: $tablet) {
+		position: fixed;
+		top: 0;
+		right: -100%;
+		width: 100%;
+		height: 100%;
+		max-width: calc(rem(320) - rem(1));
+		overflow: auto;
+		background-color: $mainDarkColor;
+		transition: right 0.3s ease 0s;
+		padding: rem(14) rem(20) rem(35);
+		&._catalog-open {
+			right: 0;
+		}
+
+		// .menu-catalog__back
+		&__back {
+			display: inline-flex;
+			align-items: center;
+			padding: rem(10) 0;
+			position: fixed;
+			z-index: 2;
+			&::before {
+				width: rem(15.35);
+				font-size: rem(14.51);
+				margin-right: em(12.5, 14.51);
+			}
+		}
+	}
+
+	&__list {
+		display: flex;
+		gap: rem(10);
+		justify-content: space-between;
+		@media (max-width: $tablet) {
+			justify-content: start;
+			flex-direction: column;
+			gap: rem(5);
+			margin-top: calc(rem(70) - rem(14));
+
+			&::before {
+				content: "";
+				position: fixed;
+				top: 0;
+				right: -100%;
+				width: 100%;
+				max-width: calc(rem(320) - rem(1));
+				height: rem(70);
+				background-color: $mainDarkColor;
+				transition: right 0.3s ease 0s;
+				z-index: 1;
+				// Если у любого родителя есть класс _catalog-open
+				._catalog-open & {
+					right: 0;
+				}
+			}
+		}
+	}
+
+	&__item {
+	}
+
+	&__link {
+		display: flex;
+		align-items: center;
+		line-height: lh(22, 18);
+		position: relative;
+		transition: all 0.2s;
+		&::after {
+			content: "";
+			position: absolute;
+			left: rem(10);
+			bottom: 0;
+			width: calc(100% - rem(20));
+			height: rem(2);
+			background-color: $mainOrange;
+			opacity: 0;
+			visibility: hidden;
+			transition: all 0.2s;
+		}
+
+		@media (min-width: $tablet) {
+			min-height: rem(70);
+			justify-content: center;
+			text-align: center;
+			padding: 0 rem(10);
+			&:hover,
+			&._submenu-active {
+				color: $mainOrange;
+				&::after {
+					opacity: 1;
+					visibility: visible;
+				}
+			}
+		}
+
+		@media (max-width: $tablet) {
+			justify-content: space-between;
+			width: 100%;
+			padding: rem(10) 0;
+		}
+
+		&::before {
+			display: none;
+		}
+		&[data-menu-parent] {
+			flex-direction: row-reverse;
+			&::before {
+				@media (max-width: $tablet) {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					flex-shrink: 0;
+					font-size: rem(14);
+					width: rem(14);
+				}
+			}
+		}
+	}
+
+	&__submenu {
+		right: 0;
+		top: 100%;
+		width: 100%;
+		background-color: $mainDarkColor;
+		// если у любого родителя есть класс _submenu-show
+		._submenu-show & {
+		}
+	}
+}
+
+.submenu-catalog {
+	@media (max-width: $tablet) {
+		position: fixed;
+		top: 0;
+		right: -100%;
+		width: 100%;
+		height: 100%;
+		max-width: calc(rem(320) - rem(1));
+		overflow: auto;
+		background-color: $mainDarkColor;
+		transition: right 0.3s ease 0s;
+		padding: rem(14) rem(20) rem(35);
+		display: block;
+		z-index: 2;
+		&::after {
+			content: "";
+			position: fixed;
+			top: 0;
+			right: -100%;
+			width: 100%;
+			max-width: calc(rem(320) - rem(1));
+			height: rem(70);
+			background-color: $mainDarkColor;
+			transition: right 0.3s ease 0s;
+		}
+
+		&._submenu-catalog-open {
+			right: 0;
+			display: block;
+			&::after {
+				right: 0;
+			}
+		}
+
+		// .submenu-catalog__back
+		&__back {
+			display: inline-flex;
+			align-items: center;
+			padding: rem(10) 0;
+			margin-bottom: rem(15);
+			position: fixed;
+			z-index: 1;
+			&::before {
+				width: rem(15.35);
+				font-size: rem(14.51);
+				margin-right: em(12.5, 14.51);
+			}
+		}
+	}
+
+	&__block {
+		&._submenu-open {
+			display: grid;
+			// Для построения нкжного количества колонок применяем специальный класс с нужным модификатором (его описание ниже)
+		}
+
+		@media (max-width: $tablet) {
+			display: flex;
+			flex-direction: column;
+			gap: rem(5);
+			margin-top: calc(rem(70) - rem(14));
+			&._submenu-open {
+				display: flex;
+			}
+			&._submenu-not-open {
+				display: none;
+			}
+		}
+	}
+
+	&__category {
+		justify-self: flex-start;
+		padding: rem(30) rem(10);
+		font-size: rem(16);
+		line-height: lh(20, 16);
+		transition: color 0.2s;
+		@media (min-width: $tablet) {
+			font-weight: 700;
+			&:hover {
+				color: $mainOrange;
+			}
+		}
+		@media (max-width: $tablet) {
+			font-size: rem(18);
+			padding: rem(10) 0;
+		}
+	}
+
+	&__list {
+		flex: 1 1 auto;
+		display: flex;
+		flex-direction: column;
+		padding: rem(30) 0;
+		gap: rem(20);
+		border-top: rem(1) solid rgba(255, 255, 255, 0.3);
+		border-bottom: rem(1) solid rgba(255, 255, 255, 0.3);
+		@media (max-width: $tablet) {
+			display: none;
+		}
+	}
+
+	&__item {
+		display: flex;
+	}
+
+	&__link {
+		align-self: flex-start;
+		padding: 0 rem(10);
+		font-size: rem(16);
+		line-height: lh(20, 16);
+		display: block;
+		transition: color 0.2s;
+		@media (min-width: $tablet) {
+			&:hover {
+				color: $mainOrange;
+			}
+		}
+	}
+
+	&__all {
+		justify-self: flex-start;
+		font-size: rem(16);
+		line-height: lh(20, 16);
+		color: $mainOrange;
+		padding: rem(30) rem(20);
+		position: relative;
+		@media (min-width: $tablet) {
+			&::after {
+				content: "";
+				position: absolute;
+				left: rem(20);
+				bottom: calc(50% - rem(16));
+				width: calc(100% - rem(40));
+				height: rem(1);
+				background-color: $mainOrange;
+				opacity: 0;
+				visibility: hidden;
+				transition: all 0.2s;
+			}
+			&:hover {
+				&::after {
+					opacity: 1;
+					visibility: visible;
+				}
+			}
+		}
+		@media (max-width: $tablet) {
+			display: none;
+		}
+	}
+}
+
+// Специальный класс для построения grid-колонок для каждого меню (добавляется из JS)
+._submenu-catalog__block {
+	// Цикл для построения grid-колонок (цикл проходит только по элементам .submenu-catalog__block)
+	// (здесь мы просто определяем переменную (например $var), чтобы использовать ее для определения класса-модификатора)
+	@for $var from 1 to 6 {
+		// &_#{$var} - означает класс .submenu-catalog__block_3
+		&_#{$var} {
+			grid-template-columns: repeat($var, minmax(auto, rem(318))); // 1590 (ширина сайта) / 5 (колонок) = 318px
+		}
+	}
+}
+
+//=============================================================================

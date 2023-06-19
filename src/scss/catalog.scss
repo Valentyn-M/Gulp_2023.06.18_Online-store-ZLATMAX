@@ -1,0 +1,467 @@
+.catalog {
+	@include adaptiveValue("padding-bottom", 120, 30);
+
+	// .catalog__container
+	&__container {
+	}
+
+	// .catalog__body
+	&__body {
+		display: grid;
+		align-items: start;
+		gap: rem(30);
+
+		@media (min-width: $tablet) {
+			grid-template-columns: rem(300) 1fr;
+		}
+		@media (min-width: rem(1050)) {
+			grid-template-columns: rem(350) 1fr;
+		}
+		@media (min-width: rem(1100)) {
+			grid-template-columns: rem(375) 1fr;
+		}
+	}
+
+	// .catalog__filter
+	&__filter {
+	}
+
+	// .catalog__content
+	&__content {
+	}
+
+	// .catalog__control
+	&__control {
+		display: flex;
+		justify-content: flex-end;
+		margin-bottom: rem(20);
+	}
+
+	// .catalog__select
+	&__select {
+	}
+
+	// .catalog__products
+	&__products {
+		display: grid;
+		// Строим сетку только на экранах больше маленького телефона
+		@media (min-width: $mobileSmall) {
+			grid-template-columns: repeat(auto-fit, minmax(rem(300), 1fr));
+		}
+		gap: rem(30);
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 60, 30);
+		}
+	}
+
+	// .catalog__footer
+	&__footer {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: rem(30);
+		flex-wrap: wrap;
+
+		@media (max-width: $pc) {
+			justify-content: center;
+			flex-direction: column;
+		}
+	}
+	// .catalog__more
+	&__more {
+	}
+	// .catalog__pagination
+	&__pagination {
+	}
+}
+
+.select {
+	// Вынесен в общие стили
+}
+
+.pagination {
+	// Вынесен в общие стили/ .pagination__link
+}
+
+// ==========================================================================================================================
+
+// Фильтр товаров
+.filter-catalog {
+	box-shadow: 0px rem(4) rem(20) rgba(0, 0, 0, 0.1);
+	color: $mainDarkColor;
+
+	// .filter-catalog__title
+	&__title {
+		background-color: $mainDarkColor;
+		padding: rem(23) rem(30);
+		@include adaptiveValue("padding-top", 23, 15, 767.98);
+		@include adaptiveValue("padding-bottom", 23, 15, 767.98);
+		font-weight: 700;
+		font-size: rem(20);
+		line-height: lh(24, 20);
+		color: #ffffff;
+		width: 100%;
+		display: flex;
+		flex-direction: row-reverse;
+		align-items: center;
+		justify-content: space-between;
+
+		&::before {
+			color: $mainOrange;
+			font-size: em(7.15, 20);
+			scale: 0.7;
+			transform: rotate(180deg);
+			transition: transform 0.3s ease 0s;
+		}
+
+		&._spoller-active {
+			&::before {
+				transform: rotate(0deg);
+			}
+		}
+
+		@media (min-width: $tablet) {
+			justify-content: flex-end;
+			&::before {
+				display: none;
+			}
+		}
+	}
+
+	// .filter-catalog__items
+	&__items {
+	}
+
+	// .filter-catalog__price
+	&__price {
+	}
+
+	// .filter-catalog__item
+	&__item {
+	}
+}
+
+// -------------------------------------
+
+// Цена
+
+.price-filter {
+	padding: rem(30);
+	padding-bottom: rem(30);
+
+	// .price-filter__title
+	&__title {
+		font-weight: 600;
+		font-size: rem(20);
+		line-height: lh(24, 20);
+		display: flex;
+		flex-direction: row-reverse;
+		align-items: center;
+		justify-content: space-between;
+		width: 100%;
+		gap: rem(10);
+
+		&::before {
+			color: $mainOrange;
+			font-size: em(7.15, 20);
+			scale: 0.7;
+			transform: rotate(180deg);
+			transition: transform 0.3s ease 0s;
+		}
+
+		&._spoller-active {
+			&::before {
+				transform: rotate(0deg);
+			}
+		}
+	}
+
+	// .price-filter__body
+	&__body {
+		padding-top: rem(30);
+		padding-bottom: rem(20);
+	}
+
+	// .price-filter__inputs
+	&__inputs {
+		&:not(:last-child) {
+			margin-bottom: rem(20);
+		}
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: rem(5);
+	}
+
+	// .price-filter__input
+	&__input {
+		border: rem(1) solid #cbcbcb;
+		border-radius: rem(2);
+		min-height: rem(42);
+		width: 100%;
+		text-align: center;
+		transition: all 0.3s ease 0s;
+
+		&:focus {
+			box-shadow: inset 0 0 rem(5) rgba(0, 0, 0, 0.2);
+			border-color: rgba(0, 0, 0, 0.3);
+			outline: none;
+		}
+	}
+
+	// .price-filter__range
+	&__range {
+		// Настройки ползунка
+		&.noUi-target {
+			background: none;
+			border-radius: 0;
+			border: none;
+			box-shadow: none;
+			height: rem(18);
+		}
+
+		.noUi-connects {
+			border-radius: 0;
+			height: rem(2);
+			background-color: $mainOrange;
+			top: 50%;
+			transform: translate(0%, -50%);
+		}
+
+		.noUi-connect {
+			background-color: #000;
+		}
+
+		.noUi-horizontal,
+		.noUi-handle {
+			right: rem(-9);
+			top: 0;
+			width: rem(18);
+			height: rem(18);
+			border-radius: 50%;
+			background-color: $mainOrange;
+			box-shadow: 0px rem(4) rem(20) rgba(232, 170, 49, 0.3);
+			box-shadow: none;
+			border: none;
+
+			&::before,
+			&::after {
+				display: none;
+			}
+		}
+
+		.noUi-touch-area {
+			width: rem(12);
+			height: rem(12);
+			border-radius: 50%;
+			background: $mainColor;
+			box-shadow: 0px rem(4) rem(20) rgba(0, 0, 0, 0.15);
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+
+		.noUi-horizontal,
+		.noUi-tooltip {
+			-webkit-transform: translate(-50%, 0);
+			transform: translate(-50%, 0);
+			left: 50%;
+			bottom: unset;
+			top: calc(100% + rem(10));
+			font-size: rem(14);
+			line-height: lh(17, 14);
+			color: rgba(20, 20, 20, 0.5);
+			border: none;
+			border-radius: 0;
+			background: transparent;
+			padding: 0;
+
+			&::after {
+				content: " руб.";
+			}
+		}
+	}
+}
+
+// -------------------------------------
+
+// Производство
+
+.item-filter-catalog {
+	// .item-filter-catalog__title
+	&__title {
+		background-color: $mainDarkColor;
+		padding: rem(13) rem(30);
+		font-weight: 600;
+		font-size: rem(20);
+		line-height: lh(24, 20);
+		color: #ffffff;
+		width: 100%;
+		display: flex;
+		flex-direction: row-reverse;
+		align-items: center;
+		justify-content: space-between;
+		gap: rem(10);
+
+		&::before {
+			color: $mainOrange;
+			font-size: em(7.15, 20);
+			scale: 0.7;
+			transform: rotate(180deg);
+			transition: transform 0.3s ease 0s;
+		}
+
+		&._spoller-active {
+			&::before {
+				transform: rotate(0deg);
+			}
+		}
+	}
+	// .item-filter-catalog__body
+	&__body {
+		padding: rem(30);
+	}
+}
+
+// -------------------------------------
+
+// Размеры
+
+.item-filter-catalog {
+	// .item-filter-catalog__title
+	&__title {
+	}
+
+	// .item-filter-catalog__body
+	&__body {
+	}
+
+	// .item-filter-catalog__inputs
+	&__inputs {
+		&:not(:last-child) {
+			margin-bottom: rem(20);
+		}
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	// .item-filter-catalog__input
+	&__input {
+		border: rem(1) solid #cbcbcb;
+		min-height: rem(42);
+		width: 100%;
+		text-align: center;
+		transition: all 0.3s ease 0s;
+		&:not(:last-child) {
+			border-right: none;
+		}
+		&:first-child {
+			border-radius: rem(2) 0 0 rem(2);
+		}
+		&:last-child {
+			border-radius: 0 rem(2) rem(2) 0;
+		}
+
+		&:focus {
+			box-shadow: inset 0 0 rem(5) rgba(0, 0, 0, 0.2);
+			border-color: rgba(0, 0, 0, 0.3);
+			outline: none;
+		}
+	}
+
+	// .item-filter-catalog__range
+	&__range {
+		// Настройки ползунка
+		&.noUi-target {
+			background: none;
+			border-radius: 0;
+			border: none;
+			box-shadow: none;
+			height: rem(18);
+		}
+
+		.noUi-connects {
+			border-radius: 0;
+			height: rem(2);
+			background-color: $mainOrange;
+			top: 50%;
+			transform: translate(0%, -50%);
+		}
+
+		.noUi-connect {
+			background-color: #000;
+		}
+
+		.noUi-horizontal,
+		.noUi-handle {
+			right: rem(-9);
+			top: 0;
+			width: rem(18);
+			height: rem(18);
+			border-radius: 50%;
+			background-color: $mainOrange;
+			box-shadow: 0px rem(4) rem(20) rgba(232, 170, 49, 0.3);
+			box-shadow: none;
+			border: none;
+
+			&::before,
+			&::after {
+				display: none;
+			}
+		}
+
+		.noUi-touch-area {
+			width: rem(12);
+			height: rem(12);
+			border-radius: 50%;
+			background: $mainColor;
+			box-shadow: 0px rem(4) rem(20) rgba(0, 0, 0, 0.15);
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+
+		.noUi-horizontal,
+		.noUi-tooltip {
+			-webkit-transform: translate(-50%, 0);
+			transform: translate(-50%, 0);
+			left: 50%;
+			bottom: unset;
+			top: calc(100% + rem(10));
+			font-size: rem(14);
+			line-height: lh(17, 14);
+			color: rgba(20, 20, 20, 0.5);
+			border: none;
+			border-radius: 0;
+			background: transparent;
+			padding: 0;
+		}
+	}
+}
+
+// -------------------------------------
+
+// Рейтинг
+
+.checkbox {
+	// .checkbox__input
+	&__input {
+	}
+	// .checkbox__label
+	&__label {
+	}
+	// .checkbox__rating-text
+	&__rating-text {
+		display: flex;
+		align-items: flex-start;
+		gap: rem(10);
+	}
+	// .checkbox__rating-value
+	&__rating-value {
+	}
+}
+
+// ==========================================================================================================================

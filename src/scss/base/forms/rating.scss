@@ -1,0 +1,93 @@
+.rating {
+	display: inline-flex;
+	align-items: center;
+	flex-wrap: wrap;
+	column-gap: rem(10);
+	transition: opacity 0.3s ease 0s;
+	line-height: 0.75; // Чтобы у звезд не было пустого пространства сверху и снизу
+	// Регулируем размер звезд (подганяем вручную под макет, смотрим на высоту ::before)
+	// font-size учитывать в letter-spacing ниже
+	font-size: rem(30);
+
+	// .rating__body
+	&__body {
+		position: relative;
+
+		// Регулируем отступ между звездами (делаем на 2 px меньше, чем по макету, т.к. между звездами уже есть отступ)
+		letter-spacing: em(5, 30);
+
+		&::before {
+			content: "★★★★★";
+			display: block;
+		}
+	}
+
+	// .rating__active (Заполняющая линия - желтый цвет)
+	&__active {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 0%;
+		height: 100%;
+		overflow: hidden;
+
+		&::before {
+			content: "★★★★★";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			// color: #ffd300;
+			color: $mainOrange;
+			display: flex;
+		}
+	}
+
+	// .rating__items
+	&__items {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		display: flex;
+	}
+
+	// .rating__item
+	&__item {
+		flex: 0 0 20%;
+		height: 100%;
+		opacity: 0;
+	}
+
+	// .rating__value
+	&__value {
+		font-size: 50%; // Размер оценки рейтигна
+		line-height: 1;
+	}
+
+	// ---------------------------------------
+
+	// Когда отправляется рейтинг на сервер
+	&._rating_sending {
+		opacity: 0.2;
+	}
+
+	// .rating_set (этот класс позволяет указывать пользователю рейтинг - оценивать)
+	&_set {
+		// Показываем руку, если можно голосовать
+		.rating__item,
+		.rating__active {
+			cursor: pointer;
+		}
+	}
+
+	// ---------------------------------------
+
+	&__info {
+		font-size: rem(16);
+		line-height: lh(34, 16);
+		color: #ababab;
+	}
+}

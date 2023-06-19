@@ -1,0 +1,32 @@
+// Buttons. Без JS
+// Здесь пишем общие стили для конопок проекта
+@import "button";
+
+// Intuts (проверка на ошибки) + JS
+// Сниппет (HTML): "inp"
+@import "input-require";
+
+// Select (Гибридный селект) + JS
+// Сниппет (HTML): "sel"
+@import "select";
+
+// Checkbox (Кастомный чекбокс). Без JS
+// Сниппет (HTML): "check"
+@import "checkbox";
+
+// Radio (Кастомная радио-кнопка). Без JS
+// Сниппет (HTML): "radio"
+// @import "radio";
+
+// File (Кнопка выбора файла с компьютера пользователя). Без JS
+// Сниппет (HTML): "file"
+// @import "file-choose";
+
+// Quantity (Кнопки с иннпутом для выбора количества товара) + JS
+// Сниппет (HTML): "quantity"
+@import "quantity";
+
+// Raiting (звёздный рейтинг)
+// Сниппет (HTML): raiting
+// Требуется подключение javascript в app.js
+@import "rating";

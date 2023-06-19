@@ -1,0 +1,74 @@
+.options {
+	// Переменные для всей радиокнопки (потомки это унаследуют)
+	$fontSize: 16; // Размер шрифта
+	$lineHeight: 20; // Межстрочный интервал
+	$marginBottom: 10; // Отступы между чекбоксами (если один чекбокс, то отступа не будет)
+
+	// .options__item
+	&__item {
+		// Параметры для всего чекбокса (потомки это унаследуют)
+		color: inherit;
+		font-size: rem($fontSize);
+		line-height: lh($lineHeight, $fontSize);
+		&:not(:last-child) {
+			margin-bottom: em($marginBottom, $fontSize);
+		}
+	}
+
+	// .options__input
+	&__input {
+		display: none;
+	}
+
+	// Переменные для label
+	$circleOuterSize: rem(16); // Размеры внешнего кружка
+	$circleInnerSize: rem(10); // Размеры внутреннего кружка
+	$circleOuterColor: rgba(0, 0, 0, 0.2); // Цвет обводки Большого кружка
+	$circleOuterColorActive: $mainOrange; // Цвет обводки Большого кружка (активный)
+	$circleInnerColor: $mainOrange; // Цвет заливки Маленького кружка
+	$circleVerticalOffset: 2; // Смещение кружка по вертикали (подбирать в зависимости от line-height: чем больше line-height, тем больше смещение)
+
+	// .options__label
+	&__label {
+		// display: inline-flex; // Если сотоит из одного слова
+		display: flex; // Растягивается на всю ширину
+		align-items: center;
+		gap: em(10, $fontSize);
+		position: relative;
+		cursor: pointer;
+
+		// Кастомный кружочек
+		&::before {
+			content: "";
+			height: $circleOuterSize;
+			flex: 0 0 $circleOuterSize; // width нельзя для флекс элемента, чтобы не сжимало его
+			align-self: flex-start; // Чтобы нормально отображался кружок при переносе текста (сверху)
+			transform: translateY(em($circleVerticalOffset, $fontSize)); // На крупном шрифте можно 4px
+			background-color: $bgColor;
+			border-radius: 50%;
+			border: rem(1) solid $circleOuterColor;
+		}
+
+		// Заполнитель в кружочке (checked)
+		&::after {
+			content: "";
+			position: absolute;
+			width: $circleInnerSize;
+			height: $circleInnerSize;
+			left: calc(($circleOuterSize - $circleInnerSize) / 2);
+			top: calc(($circleOuterSize - $circleInnerSize) / 2);
+			transform: translateY(em($circleVerticalOffset, $fontSize)) scale(0); // scale(0) - Скрываем кружок
+			border-radius: 50%;
+			background-color: $circleInnerColor;
+			transition: transform 0.3s ease 0s;
+		}
+	}
+
+	// Активная радио-кнопка
+	&__input:checked + &__label::before {
+		border: rem(1) solid $circleOuterColorActive;
+	}
+	&__input:checked + &__label::after {
+		transform: translateY(em($circleVerticalOffset, $fontSize)) scale(1);
+	}
+}

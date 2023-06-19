@@ -1,0 +1,164 @@
+@import "base/reset"; // обнудение стилей
+@import "base/mixins"; // миксины и функции
+@import "fonts/fonts"; // локальные шрифты
+@import "fonts/iconfont"; // иконочный шрифт
+
+// ==========================================================================================================================
+
+/* Настройки проекта */
+
+// Основные цвета
+$mainColor: #000; // цвет шрифта по умолчанию
+$bgColor: #ffffff; // цвет фона
+$mainDarkColor: #141414;
+$mainOrange: #e8aa31;
+$bgColorLight: #fefefe;
+
+// Настройки макета
+$minWidth: 320; // Минимальная ширина страницы
+$maxWidth: 1920; // Ширина полотна (макета)(для расчета адптива)
+$maxWidthContainer: 1590; // Ширина ограничивающего контейнера ($maxWidthContainer: $maxWidth = нет ограничений)
+$containerPadding: 15; // Общий отступ ограничивающего контейнера (30px: по 15 слева и справа. 0 = нет отступа)
+
+// Тип адаптива:
+// 1 - Только уменьшение - КЛАССИКА (от максимального значения до минимального значения). Можно указывать брейкпоинты (Пример: @include adaptiveValue("column-gap", 15, 5); или @include adaptiveValue("column-gap", 15, 5, 992, 480);)
+// 2 - Только на увеличение - MOBILE FIRST (от начального значения до максимального значения. Можно указывать брейкпоинты (Пример: @include adaptiveValue("column-gap", 17, 30, 2, 992, 1920); или @include adaptiveValue("column-gap", 17, 30, 2, 992, 1920, 1);)
+// 3 - Безграничное увеличение и уменьшение - РЕЗИНОВЫЙ САЙТ. Такой-же, как и первый тип, но не имеет максимального ограничения (ограничивающего контейнера)
+$adaptiveType: 1;
+
+// Определеяем конечный viewport в зависимости от типа адаптива
+$minMaxWidthType: $minWidth;
+@if $adaptiveType == 2 {
+	$minMaxWidthType: $maxWidth;
+}
+
+// Реальный ограничивающий контейнер
+// Ширина срабатывания первого брейк-поинта
+$containerWidth: ($maxWidthContainer + $containerPadding * 2);
+
+// Брейк-поинты
+$pc: rem(1199.98); // ПК, Ноутбуки, некоторые планшеты в горизрнтальном положении
+$tablet: rem(991.98); // Планшеты, некоторые телефоны в горизонтальном положении
+$mobile: rem(767.98); // Телефоны L
+$mobileSmall: rem(479.98); // Телефоны S
+
+body {
+	min-width: rem($minWidth);
+	background-color: $bgColor;
+	color: $mainColor;
+	font-size: rem(18);
+	font-family: "Montserrat", sans-serif;
+	font-weight: 500;
+	// Скрол заблокирован
+	&._lock {
+		overflow: hidden;
+		touch-action: none;
+	}
+}
+
+// Оболочка
+.wrapper {
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	// Сайт загружен
+	._loaded & {
+	}
+	// Прижимаем футер
+	> main {
+		flex: 1 1 auto; // flex-grow: 1
+	}
+	// Фикс для слайдеров
+	> * {
+		min-width: 0;
+	}
+}
+
+// Ограничивающий контейнер (стили будут применяться ко все классам, содержащим *__container)
+[class*="__container"] {
+	max-width: rem($containerWidth); // макет + padding
+	padding: 0 rem($containerPadding);
+	margin: 0 auto;
+}
+
+// ==========================================================================================================================
+
+// Подключение базовых стилей, шаблонов (заготовок) и вспомагательных классов
+// Для подключения нужныхстилей надо перейти в base.scss
+@import "base";
+
+// Подключение стилей общих элементов проекта
+@import "common";
+
+// Подключение стилей отдельных блоков сайта
+@import "header";
+@import "footer";
+
+// Подключение стилей отдельных страниц (для многостраничных сайтов)
+@import "home";
+@import "catalog";
+@import "product";
+
+.page {
+	// .page_home
+	&_home {
+	}
+
+	// .page_inner
+	&_inner {
+		background-color: $bgColorLight;
+		padding-top: rem(30);
+	}
+
+	// .page__header
+	&__header {
+		padding-bottom: rem(30);
+	}
+
+	// .page__main-block
+	&__main-block {
+	}
+
+	// .page__about-us
+	&__about-us {
+	}
+
+	// .page__catalog-cards
+	&__catalog-cards {
+	}
+
+	// .page__hits-products
+	&__hits-products {
+	}
+
+	// .page__new-products
+	&__new-products {
+	}
+
+	// .page__promotions-products
+	&__promotions-products {
+	}
+
+	// .page__articles-block
+	&__articles-block {
+	}
+
+	// .page__products-block
+	&__products-block {
+	}
+
+	// .page__other-products
+	&__other-products {
+	}
+
+	// .page__similar-products
+	&__similar-products {
+		@include adaptiveValue("margin-bottom", 120, 50);
+	}
+
+	// .page__recommended-products
+	&__recommended-products {
+		@include adaptiveValue("margin-bottom", 120, 50);
+	}
+}
