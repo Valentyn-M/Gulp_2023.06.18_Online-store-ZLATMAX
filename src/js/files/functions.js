@@ -63,3 +63,8 @@ export function scrollTopStart() {
 // ==============================================================================================
 
 
+// Переводит медиа выражение из px в rem и обратно в px с учетом шрифта браузера (который хранится в теге html)
+export function mediaWidthRem(mediaWidth) {
+	const fontSize = parseFloat(getComputedStyle(document.documentElement).fontSize);		// Функция parseFloat() принимает строку в качестве аргумента и возвращает десятичное число (число с плавающей точкой)
+	return (mediaWidth / 16 * fontSize);
+}

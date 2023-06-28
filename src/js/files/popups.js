@@ -1,3 +1,6 @@
+// Функция для Медиа-запросов (переводит px в rem и обратно в px с учетом шрифта браузера)
+import { mediaWidthRem } from "./functions.js"
+
 // Popup 1
 export function popup1() {
 
@@ -13,8 +16,8 @@ export function popup1() {
 
 		popupCallbackBody.classList.add('_popup-active');
 		popupCallbackWindow.classList.add('_popup-active');
-		if (windowWidth < 991.98) {
-			bodyElement.classList.add('lock');
+		if (windowWidth <= mediaWidthRem(991.98)) {
+			bodyElement.classList.add('_lock');
 		}
 
 		// Вешаем прослушку (по клику) на весь документ
@@ -27,8 +30,8 @@ export function popup1() {
 			if (!popupButton && !popupWindow || closeButton) {
 				popupCallbackBody.classList.remove('_popup-active');
 				popupCallbackWindow.classList.remove('_popup-active');
-				if (windowWidth < 991.98) {
-					bodyElement.classList.remove('lock');
+				if (windowWidth <= mediaWidthRem(991.98)) {
+					bodyElement.classList.remove('_lock');
 				}
 				// Удаляем текущую прослушку со всего документа
 				document.removeEventListener("click", closePopup);
@@ -42,8 +45,8 @@ export function popup1() {
 			if (event.code === 'Escape') {
 				popupCallbackBody.classList.remove('_popup-active');
 				popupCallbackWindow.classList.remove('_popup-active');
-				if (windowWidth < 991.98) {
-					bodyElement.classList.remove('lock');
+				if (windowWidth <= mediaWidthRem(991.98)) {
+					bodyElement.classList.remove('_lock');
 				}
 				// Удаляем текущую прослушку со всего документа
 				document.removeEventListener("click", closePopup);
@@ -67,8 +70,8 @@ export function popup2() {
 
 		popupCallbackBody.classList.add('_popup-active');
 		popupCallbackWindow.classList.add('_popup-active');
-		if (windowWidth < 991.98) {
-			bodyElement.classList.add('lock');
+		if (windowWidth <= mediaWidthRem(991.98)) {
+			bodyElement.classList.add('_lock');
 		}
 
 		// Вешаем прослушку (по клику) на весь документ
@@ -81,8 +84,8 @@ export function popup2() {
 			if (!popupButton && !popupWindow || closeButton) {
 				popupCallbackBody.classList.remove('_popup-active');
 				popupCallbackWindow.classList.remove('_popup-active');
-				if (windowWidth < 991.98) {
-					bodyElement.classList.remove('lock');
+				if (windowWidth <= mediaWidthRem(991.98)) {
+					bodyElement.classList.remove('_lock');
 				}
 				// Удаляем текущую прослушку со всего документа
 				document.removeEventListener("click", closePopup);
@@ -96,8 +99,8 @@ export function popup2() {
 			if (event.code === 'Escape') {
 				popupCallbackBody.classList.remove('_popup-active');
 				popupCallbackWindow.classList.remove('_popup-active');
-				if (windowWidth < 991.98) {
-					bodyElement.classList.remove('lock');
+				if (windowWidth <= mediaWidthRem(991.98)) {
+					bodyElement.classList.remove('_lock');
 				}
 				// Удаляем текущую прослушку со всего документа
 				document.removeEventListener("click", closePopup);
@@ -121,8 +124,8 @@ export function popup3() {
 
 		popupCallbackBody.classList.add('_popup-active');
 		popupCallbackWindow.classList.add('_popup-active');
-		if (windowWidth < 991.98) {
-			bodyElement.classList.add('lock');
+		if (windowWidth <= mediaWidthRem(991.98)) {
+			bodyElement.classList.add('_lock');
 		}
 
 		// Вешаем прослушку (по клику) на весь документ
@@ -135,8 +138,8 @@ export function popup3() {
 			if (!popupButton && !popupWindow || closeButton) {
 				popupCallbackBody.classList.remove('_popup-active');
 				popupCallbackWindow.classList.remove('_popup-active');
-				if (windowWidth < 991.98) {
-					bodyElement.classList.remove('lock');
+				if (windowWidth <= mediaWidthRem(991.98)) {
+					bodyElement.classList.remove('_lock');
 				}
 				// Удаляем текущую прослушку со всего документа
 				document.removeEventListener("click", closePopup);
@@ -150,8 +153,8 @@ export function popup3() {
 			if (event.code === 'Escape') {
 				popupCallbackBody.classList.remove('_popup-active');
 				popupCallbackWindow.classList.remove('_popup-active');
-				if (windowWidth < 991.98) {
-					bodyElement.classList.remove('lock');
+				if (windowWidth <= mediaWidthRem(991.98)) {
+					bodyElement.classList.remove('_lock');
 				}
 				// Удаляем текущую прослушку со всего документа
 				document.removeEventListener("click", closePopup);
